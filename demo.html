@@ -1,0 +1,48 @@
+<!-- THIS MARKUP IS PURELY DEMO AND NOT MEANT TO BE 'PERFECT' -->
+
+<html>
+<head>
+    <script type="text/javascript" src="EWSProfileImages.js"></script>
+</head>
+<body>
+	<img id="dpich@sapient.com" width=64 height=64/>
+	<img id="mroehl@sapient.com" width=64 height=64/><br/>
+	<img id="hscheele@sapient.com" width=64 height=64/>
+	<img id="shabeeb2@sapient.com" width=64 height=64/><br/>
+	<img id="fheimbrecht@sapient.com" width=64 height=64/>
+	<img id="smakhlof@sapient.com" width=64 height=64/><br/>
+	<img id="dpich@sapient.com" width=64 height=64/>
+	<img id="mroehl@sapient.com" width=64 height=64/><br/>
+	<img id="hscheele@sapient.com" width=64 height=64/>
+	<img id="shabeeb2@sapient.com" width=64 height=64/><br/>
+	<img id="fheimbrecht@sapient.com" width=64 height=64/>
+	<img id="smakhlof@sapient.com" width=64 height=64/><br/>
+	<img id="dpich@sapient.com" width=64 height=64/>
+	<img id="mroehl@sapient.com" width=64 height=64/><br/>
+	<img id="hscheele@sapient.com" width=64 height=64/>
+	<img id="shabeeb2@sapient.com" width=64 height=64/><br/>
+	<img id="fheimbrecht@sapient.com" width=64 height=64/>
+	<img id="smakhlof@sapient.com" width=64 height=64/><br/>
+	<script type="text/javascript">
+		
+(function() {
+	//set credentials
+	var ews = EWSProfileImages.shared
+    ews.host = "webmail.sapient.com"
+
+	//optional. only needed if you dont want to somehow handle authentication yourself . allow anonymous access :)
+	//with the proxy you get kinda get a 'system user'
+	ews.proxy = "./EWSProfileImageService.php" //can be any url. gets email & size passed via GET
+
+	//load all images
+	var imgs = document.getElementsByTagName("img");
+	for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i]
+	
+        var profileImage = ews.get(imgs[i].id, EWSProfileImages.ImageSize.big);        
+        img.src = profileImage.image_url;
+     }
+})()
+	</script>
+</body>
+</html>	
